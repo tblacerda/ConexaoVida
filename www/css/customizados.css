@@ -1,0 +1,462 @@
+@CHARSET "UTF-8";
+
+/*****************
+GERAIS
+*****************/
+.menu, .menu .has-header{
+	background: #62aaa2 !important;
+	color: white !important;
+}
+#menu-popover{
+	display: none;
+}
+.menu .item{
+	color: white !important;
+}
+.menu .item:FIRST-CHILD{
+	border-top: solid 1px white;
+}
+.menu .item:not(:first-child){
+	background: #62aaa2 !important;
+	border-top: dashed 1px white;
+}
+.esconder-informacao{
+	display: none;
+}
+.avatar{
+	border-radius: 0%!important;
+}
+
+
+.button-positive{
+	background: #62aaa2 !important;	
+}
+
+.expanded {
+/*     border-bottom: solid 1px white; */
+    background: #62aaa2 !important;
+}
+.item select{
+	height: 45px !important;
+}
+input::placeholder { 
+	color: #517f78; 
+	font-size: 1em; 
+	padding: 5px;
+}
+.placeholder-icon{
+	color: #517f78;
+}
+
+.botaoPadrao, .dt-button{
+	background: #386d67 !important;
+    color: white !important;
+    font-weight: bold;
+    border: none !important;
+}
+
+.botaoPadrao:hover{
+	color: white;
+}
+
+#fab{
+	display: none !important;
+}
+.has-header {
+    top: 44px;
+	background: url('../img/imagens/background.png') no-repeat;
+	background-size: 100%;
+}
+
+.pageLogin, .view-container {
+	background: url('../img/imagens/background_logo.png') no-repeat;
+	background-size: 100%;
+}
+
+.erro{
+	color: red;
+/*     border-bottom: dashed 1px; */
+	border-top: dashed 1px;
+    width: 100%;
+    display: block;
+    padding: 5px;
+}
+
+.bar-subheader, .bar-subheader .title {
+    top: 0px !important;
+    display: block;
+    height: 118px;
+	font-size: 12px;
+    background: #62aaa2 !important;
+}
+
+.titulo-icone{
+	color: white !important;
+}
+
+.titulo-icone i{
+	font-size: 4em !important;
+}
+
+.texto-icone {
+    font-size: 0.8em !important;
+    word-break: break-word;
+    white-space: normal !important;
+    display: block;
+    line-height: initial;
+}
+
+.formPadrao{
+	background: white;
+}
+
+.cadastroPadrao input, .cadastroPadrao select{
+	border-bottom: solid 1px #62aaa2 !important;
+}
+.corpadrao{
+	color: #62aaa2 !important;
+}
+
+.confirmarCadastro .formPadrao{
+	background: #62aaa2 !important;
+	color: white !important;
+}
+
+.confirmarCadastro .formPadrao input::placeholder { 
+	color: #ffffff; 
+	font-size: 1em; 
+	padding: 5px;
+}
+
+.confirmarCadastro .formPadrao input, .confirmarCadastro .formPadrao select{
+	border-bottom: solid 1px white !important;
+}
+
+.confirmarCadastro .formPadrao .input-label, .confirmarCadastro .formPadrao .fa, 
+.confirmarCadastro .formPadrao input, .confirmarCadastro .formPadrao select{
+	color: white !important;
+	background: #62aaa2 !important;
+}
+
+.btAdicionar{
+	float: right;
+	margin-top: -65px;
+}
+
+table.dataTable td {
+  word-break: break-word;
+  white-space: normal !important;
+}
+
+.ui-widget-header {
+    background: #62aaa2 !important;
+    color: #ffffff !important;
+}
+
+datepicker input{
+	width: 87%;
+	float: left;
+	border-bottom: solid 1px #62aaa2 !important;
+}
+datepicker i.fa{
+	float: right;
+}
+
+._720kb-datepicker-calendar-header{
+	background: #62aaa2 !important;
+}
+
+input[type="date"]{
+	width: 85%;
+    float: left;
+}
+
+.item-input .fa-calendar{
+	float: right;
+}
+.item-input .input-label{
+	color: #62aaa2 !important;
+}
+
+.item-input .fa{
+	color:#62aaa2 !important;
+}
+
+/** ESTILO DA HOME **/
+[nav-bar-transition="ios"] [nav-bar="active"] .bar, [nav-bar-transition="ios"] [nav-bar="entering"] .bar {
+    background: #62aaa2 !important;
+}
+
+.imagem-home {
+    width: 50%;
+    margin-top: 10px;
+}
+
+.bar.bar-assertive {
+    border-color: #62aaa2 !important;
+    background: #62aaa2 !important;
+    background-image: linear-gradient(0deg, #e42112, #e42112 50%, transparent 50%);
+    color: #fff;
+}
+
+.popover .bar-header, .popover .bar-header .title {
+    background: #62aaa2 !important;
+	color: white;
+}
+
+.scroll .botoes-home:not(:first-child) {
+    margin-top: 15px !important;
+}
+
+.botoes-inicios{
+    padding: 5px;
+    display: block;
+    text-decoration: none;
+}
+
+a.botoes-inicios{
+	text-decoration: none;
+}
+
+a.botoes-inicios img{
+	width: 65%;
+}
+
+a.botoes-inicios i.fa {
+    font-size: 4em;
+    display: block;
+	margin-bottom: 5px;
+}
+
+.botoes-inicios, a.botoes-inicios .ion{
+	text-align: center;
+}
+
+.links{
+	color: #517f78;
+	text-decoration: none;
+}
+
+/************************
+********* Login
+*************************/
+.imagem-home-login{
+	margin-bottom: 30%;
+}
+.car-login {
+    background: none !important;
+	margin: 0px !important;
+}
+.car-login div label.login{
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+}
+.car-login div label.senha{
+/* 	border-top: dashed 1px gray !important; */
+}
+.centralizar{
+	text-align: center;
+}
+.links-login li{
+	margin-top:20px;
+}
+
+.loginForm .erro{
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+} 
+/************************
+********* Esqueci a senha
+*************************/
+.esqueci-senha{
+	background: white;
+}
+/************************
+********* cadastro paciente
+*************************/
+.esqueci-senha{
+	background: white;
+}
+
+
+/***********************
+ *** Gerenciar usuário
+ **********************/
+.contentGerenciarUsuario .bar-subheader, .contentGerenciarUsuario .bar-subheader .title {
+	height: 120px !important;
+}
+.contentGerenciarUsuario, .contentGerenciarUsuario .scroll{
+	background: white;
+}
+.gerenciarUsuarios i{
+    font-size: 5em !important;
+    margin-top: 10px !important;
+}
+.listagem{
+	border: solid 1px #62aaa2 ;
+	margin: 10px;
+	border-radius: 10px;
+}
+.tituloListagem{
+	border-bottom: solid 1px #62aaa2 ;
+	color: #386d67;
+}
+#formListarUsuario label {
+	/**border-bottom: solid 1px  #62aaa2 ;*/
+}
+.dt-buttons{
+	width: 100%;
+}
+#listaUsuarios_filter{
+	display: none;
+}
+.dt-buttons .dt-button {
+    float: left;
+}
+
+/********************************
+ **** Exames
+ *******************************/
+
+#formCadastroExame label{
+	padding-left: 0px !important;
+}
+
+/**********
+ ***** Meus exames
+ *******/
+
+/* .meus-exames .bar-subheader, .meus-exames strong{ */
+/* 	height: 60px !important; */
+/* } */
+
+.meus-exames div.item{
+	border-bottom: dashed 1px #62aaa2 !important;
+}
+/*********
+**** Gerenciar exames
+**/
+#listaExames_filter{
+	display: none;
+}
+
+.button-balanced span{
+	margin-top: 5px;
+}
+
+/*********
+ ** NOTIFICAÇÃO
+ **********/
+.notificacao{
+    padding-left: 19px;
+}
+
+.notificacao h2{
+	font-size: 20px;
+	overflow: inherit;
+    white-space: normal;
+}
+
+.notificacao p {
+    overflow: inherit;
+    white-space: normal;
+	padding: 20px;
+	text-align: justify;
+}
+.naoLida{
+	color: #034840;
+}
+.naoLida h2{
+	font-size: 20px;
+	color: #034840;
+}
+
+.naoLida p {
+	color: #034840;
+}
+
+.item.item-icon-left.notificacao:not(:first-child) {
+    border-top: dashed 1px #62aaa2;
+}
+
+.dataNotificacao{
+    text-align: right;
+    display: block;
+}
+
+.abasNotificacao{
+	height: 60px;
+}
+
+.abasNotificacao .tab-item{
+	font-size: 14px !important;
+    padding: 5px;
+}
+
+.corpo{
+	background: #62aaa2 !important;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    border: solid 2px;
+	border-radius: 5px;
+}
+
+.interacao-notificacao{
+	background: #bff3ed;
+}
+
+.corpo::placeholder {
+	color: white;
+}
+
+.datalhe-notificacao .item.ng-binding {
+    word-break: break-word;
+    white-space: normal !important;
+ }
+ 
+.notificacao-equipe:before{
+    width: 0;
+    height: 0;
+    content:"";
+    top:-5px;
+    left:-14px;
+    position:relative;
+    border-style: solid;
+    border-width: 0 13px 13px 0;
+    border-color: transparent #ffffff transparent transparent;            
+}
+
+.notificacao-paciente:after{
+    width: 0;
+    height: 0;
+    content:"";
+    top:-5px;
+    left:14px;
+    position:relative;
+    border-style: solid;
+    border-width: 13px 13px 0 0;
+    border-color: whitesmoke transparent transparent transparent;           
+}
+ .notificacao-paciente {
+ 	background: #62aaa2;
+ 	color: white !important;
+ 	text-align: right !important;
+ }
+ 
+.notificacao-paciente h2, .notificacao-paciente span , .notificacao-paciente p{
+ 	color: white !important;
+	text-align: right !important;
+}
+ 
+.notificacao-paciente i{
+ 	display: none;
+}
+ 
+ /** AGENDAMENTOS **/
+.agendamentos .item.item-icon-left {
+    border-bottom: dashed 1px #62aaa2;
+}
+.cadastroConsulta .descricao{
+    border: solid 1px #62aaa2;
+}
+
+ /** AGENDAMENTO **/

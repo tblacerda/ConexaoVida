@@ -1,0 +1,197 @@
+<ion-view view-title="Notificar Paciente" class="esqueci-senha-titulo">
+    <ion-nav-title  class="esqueci-senha-titulo">
+        Gerenciar Notificações
+    </ion-nav-title>
+    <ion-content class="contentGerenciarUsuario">
+        <div class="bar bar-subheader bar-stable static text-center">
+            <strong class="title titulo-icone gerenciarUsuarios">
+                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                <br />
+                <span class="texto-icone">Gerenciar Notificações</span>
+            </strong>
+        </div>
+        <br />
+
+        <div class="row">
+            <div class="tabs tabs-balanced tabs-icon-top abasNotificacao" style="position: static; margin-bottom: 5px; border-radius: 5px; background: #62aaa2 !important;">
+                <a class="tab-item lista" ng-class="{'active': mostrarLista == 1}" href="javascript:void(0)" ng-click="mostrarBusca(1)" style="border-right: dashed 1px;" >
+                    <i class="icon fa fa-podcast"></i> Cadastrar 
+                </a>
+                <a class="tab-item graficos" ng-class="{'active': mostrarLista == 2}" href="javascript:void(0)" ng-click="mostrarBusca(2)" style="border-right: dashed 1px;" >
+                    <i class="icon fa fa-search"></i> Buscar
+                </a>
+                <a class="tab-item graficos" ng-class="{'active': mostrarLista == 3}" href="javascript:void(0)" ng-click="mostrarBusca(3)">
+                    <i class="icon fa fa-comment"></i> Responder
+                </a>
+            </div>
+        </div>
+
+
+        <form name="formFiltrarUsuario" id="formListarUsuario" ng-show="mostrarLista == 1" class="formPadrao formListarUsuario im-wrapper ">
+            <div class="list">
+
+                <label class="item item-input cadastroPadrao item-select">
+                    <div class="input-label corpadrao">
+                        Perfil
+                    </div>
+                    <select style="min-width: 75%;" name="sexo" ng-model="notificacaoData.perfil_id">
+                        <option value="0">Todos os Perfis</option>
+                        <option ng-repeat="perfil in listaPerfis" value="{{perfil.id}}">{{perfil.descricao}}</option>
+                    </select>
+                </label>
+
+                <label class="item item-input cadastroPadrao item-select">
+                    <div class="input-label corpadrao">
+                        Sexo
+                    </div>
+                    <select style="min-width: 75%;" name="sexo" ng-model="notificacaoData.sexo">
+                        <option value="0">Ambos os Sexos</option>
+                        <option value="1">Masculino</option>
+                        <option value="2">Feminino</option>
+                    </select>
+                </label>
+
+                <label class="item item-input cadastroPadrao item-select" >
+                    <div class="input-label corpadrao">
+                        Câncer
+                    </div>
+                    <select style="min-width: 75%;" name="sexo" ng-model="notificacaoData.cancer_id" multiple="multiple">
+                        <option value="0">Todos Cânceres</option>
+                        <option ng-repeat="cancer in listaCancer" value="{{cancer.id}}">{{cancer.descricao}}</option>
+                    </select>
+                </label>
+
+                <label class="item item-input cadastroPadrao item-select">
+                    <div class="input-label corpadrao">
+                        Com Idade Acima de:
+                    </div>
+                    <select style="min-width: 2%;" name="sexo" ng-model="notificacaoData.idade">
+                        <option ng-repeat="idade in listaIdade" value="{{idade}}">{{idade}}</option>
+                    </select>
+                </label>
+
+                <label class="item item-input cadastroPadrao"> 
+                    <i class="icon fa fa-user placeholder-icon" style="font-size: 24px"></i> 
+                    <input type="text" placeholder="Informe nº PEP" class="pep" name="pep" ng-model="notificacaoData.pep" >
+                </label>
+                <input type="hidden" ng-model="notificacaoData.total" >
+            </div>
+            <button class="button button-full botaoPadrao" ng-click="pesquisaNotificacao()">Pesquisar</button>
+        </form>
+        <form name="formListarUsuarioPesquisar" id="formListarUsuario" ng-show="mostrarLista == 2" class="formPadrao formListarUsuario im-wrapper ">
+            <div class="list">
+                <label class="item item-input cadastroPadrao "> 
+                    <input type="text" placeholder="Data Envio: 99/99/9999" name="data_envio" class="data" ng-model="notificacaoData.data_envio">
+                    <i class="icon fa fa-calendar placeholder-icon" style="font-size: 24px"></i> 
+                </label>
+                <label class="item item-input cadastroPadrao"> 
+                    <i class="icon fa fa-font" style="font-size: 24px; margin-right: 8px;"></i> 
+                    <input type="text" placeholder="Título da Mensagem" maxlength="50" class="titulo" name="titulo" ng-model="notificacaoData.titulo" >
+                </label>
+
+            </div>
+            <button class="button button-full botaoPadrao" ng-click="buscarNotificacao()">Buscar</button>
+        </form>
+
+        <hr ng-show="mostrarLista == 2" />
+
+        <div class="listagem" ng-show="mostrarLista == 2">
+
+            <div class="row" >
+                <div class="col col-100">
+                    <h3 class="tituloListagem">Notificações Enviadas</h3>
+                </div>
+            </div>
+
+            <div class="row" >
+                <div class="col col-100 lista">
+                    <table id="listaNotificacoes" class="display responsive nowrap" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>Data Envio</th>
+                                <th >Título</th>
+                                <th >Total Enviados</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        	<tr>
+                        		<td >Nenhuma </td>
+                        		<td > Pesquisa </td>
+                        		<td > Realizada!</td>
+                        	</tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Data Envio</th>
+                                <th >Título</th>
+                                <th >Total Enviados</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <form name="formListarUsuarioPesquisar" id="formListarUsuario" ng-show="mostrarLista == 3" class="formPadrao formListarUsuario im-wrapper ">
+            <div class="list">
+                <label class="item item-input cadastroPadrao "> 
+                    <input type="text" placeholder="Data Recebimento: 99/99/9999" name="data_envio" class="data" ng-model="notificacaoDataResposta.data_recebimento">
+                    <i class="icon fa fa-calendar placeholder-icon" style="font-size: 24px"></i> 
+                </label>
+                <label class="item item-input cadastroPadrao"> 
+                    <i class="icon fa fa-user" style="font-size: 24px; margin-right: 8px;"></i> 
+                    <input type="text" placeholder="Nº do PEP" maxlength="50" class="titulo" name="pep" ng-model="notificacaoDataResposta.pep" >
+                </label>
+            </div>
+            <button class="button button-full botaoPadrao" ng-click="buscarNotificacaoResposta()">Buscar</button>
+        </form>
+
+        <hr ng-show="mostrarLista == 3" />
+
+        <div class="listagem" ng-show="mostrarLista == 3">
+
+            <div class="row" >
+                <div class="col col-100">
+                    <h3 class="tituloListagem">Notificações Recebidas</h3>
+                </div>
+            </div>
+
+            <div class="row" >
+                <div class="col col-100 lista">
+                    <table id="listaNotificacoesRecebidas" class="display responsive nowrap" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                            	<th>Paciente (PEP)</th>
+                                <th>Data Envio</th>
+                                <th>Título</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        	<tr>
+                        		<td >Nenhuma </td>
+                        		<td > Pesquisa </td>
+                        		<td > Realizada!</td>
+                        	</tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Paciente (PEP)</th>
+                                <th>Data Envio</th>
+                                <th>Título</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+    </ion-content>
+</ion-view>
+<style>
+    .bar.bar-header{
+        box-shadow: none !important;
+    }
+    .bar.bar-stable{
+        border: none !important;
+    }
+</style>

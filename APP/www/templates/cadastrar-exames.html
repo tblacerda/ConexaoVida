@@ -1,0 +1,57 @@
+<ion-view view-title="" class="esqueci-senha-titulo">
+	<ion-nav-title  class="esqueci-senha-titulo">
+		Cadastrar Exames
+    </ion-nav-title>
+    <ion-content class="esqueci-senha">
+        <div class="bar bar-subheader bar-stable static text-center">
+            <strong class="title titulo-icone">
+            	<i class="fa fa-plus-square" aria-hidden="true"></i>
+            	<br />
+            	<span class="texto-icone">Preencha os Campos Abaixo para Cadastrar Seus Exames.</span>
+           	</strong>
+        </div>
+        <form name="cadastrarUsuario" id="formCadastroExame" class="formPadrao cadastroUsuario im-wrapper ">
+				<div class="list">
+					<label class="item item-input cadastroPadrao item-select">
+					    <div class="input-label corpadrao">
+					      Área do Exame:
+					    </div>
+					    <select style=" width: 65%;" name="sexo" ng-model="exameData.area_id">
+					      <option ng-repeat="area in listaAreas" value="{{area.id}}">{{area.descricao}}</option>
+					    </select>
+					</label>
+					<label class="item item-input cadastroPadrao item-select">
+					    <div class="input-label corpadrao">
+					      Tipo de Exame:
+					    </div>
+					    <select style=" width: 65%;" name="sexo" ng-model="exameData.tipo_exame_id">
+					      <option ng-repeat="tipoExame in listaTipoExames" value="{{tipoExame.id}}">{{tipoExame.descricao}}</option>
+					    </select>
+					</label>
+					<label class="item item-input cadastroPadrao item-stacked-label"> 
+						<span class="input-label">Data da Coleta do Exame:</span>
+						<input type="date" ng-change="formatDate()" data-date-format="DD/MM/YYYY" placeholder="Data Coleta Exame: 99/99/9999" id="data_exame" name="data_exame" ng-model="exameData.data_exame_form" required>
+						<input type="hidden" ng-model="exameData.data_exame" />
+						<i class="icon fa fa-calendar placeholder-icon" for="data_exame" style="font-size: 24px"></i> 
+					</label>
+					<span class="erro" ng-show="erros && !cadastrarUsuario.data_exame.$valid">Data de Coleta do Exame é Obrigatória</span> 
+					<label class="item item-input cadastroPadrao  item-stacked-label"> 
+						<span class="input-label">Data de Entrega do Resultado:</span>
+						<input type="date" ng-change="formatDate()" placeholder="Data de Entrega Resultado: 99/99/9999" name="data_previsao" ng-model="exameData.data_previsao_form" required>
+						<input type="hidden" 	ng-model="exameData.data_previsao" />
+						<i class="icon fa fa-calendar placeholder-icon" style="font-size: 24px"></i> 
+					</label>
+					<span class="erro" ng-show="erros && !cadastrarUsuario.data_previsao.$valid">Data de Entrega do Resultado é Obrigatória</span> 
+				</div>
+			<button class="button button-full botaoPadrao" ng-click="salvar()">Cadastrar Exame</button>
+		</form>
+    </ion-content>
+</ion-view>
+<style>
+	.bar.bar-header{
+	    box-shadow: none !important;
+	}
+	.bar.bar-stable{
+		border: none !important;
+	}
+</style>

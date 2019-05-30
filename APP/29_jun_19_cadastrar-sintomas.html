@@ -1,0 +1,69 @@
+<ion-view view-title="" class="esqueci-senha-titulo meus-notificacaos">
+	<ion-nav-title  class="esqueci-senha-titulo">
+		Notificação de sintomas 
+    </ion-nav-title>
+   <ion-content class="esqueci-senha" overflow-scroll="false" >
+
+<div class="bar bar-subheader bar-stable static text-center">
+	<strong class="title titulo-icone">
+		<i class="fa fa-plus-square" aria-hidden="true"></i>
+		<br />
+		<span class="texto-icone">Preencha os Campos Abaixo para informar seus Sintomas ou estado</span>
+	 </strong>
+</div>
+<form name="cadastrarSintoma" id="formCadastroSintoma" class="formPadrao cadastroSintoma im-wrapper">
+	<button class="button button-full botaoPadrao" ng-click="validarSintomas()">Enviar</button>
+	<div class="list">
+<label class="item item-input cadastroPadrao item-select">
+		<div class="input-label corpadrao">
+			Tipo:
+		</div>
+		<select style=" width: 65%;" name="sintomasData.tipoSintoma" ng-model="sintomasData.tipoSintomaid">
+			<option ng-repeat="tipo in classificacaoSintomas" value="{{tipo.id}}">{{tipo.descricao}}</option>
+		</select>
+</label>
+
+<br>
+<!-- necessário carregar os valores de {{sintoma.id = 0}} 
+antes estava value = "0", por isso todos os ranges iniciavam em zero
+-->
+	<label class="item item-input cadastroPadrao item-stacked-label"> 
+						<span class="input-label">Data dos Sintomas:</span>
+						<input type="date" ng-change="formatDate()" data-date-format="DD/MM/YYYY" placeholder="Data dos sintomas: 99/99/9999" id="data_sintoma" name="data_sintoma" ng-model="sintomasData.data" required>
+						<input type="hidden" ng-model="sintomasData.data" />
+						<i class="icon fa fa-calendar placeholder-icon" for="data_exame" style="font-size: 24px"></i> 
+					</label>
+		<br>
+		<div scroll="enable" ng-repeat="sintoma in listaSintomas" >
+		 
+				{{sintoma.descricao}} = {{sintomasData.tipoSintoma[sintoma.id]}} 
+			<div class = "item range" scrolling="yes">
+			<i class = "icon ion-minus-round"></i>
+			<!--<input type="range" ng-model="sintomasData.tipoSintoma[sintoma.id]" name="sintomasData.sintomas[{{sintoma.id}}]" value=""  min="0" max="3" step="1" pin="false" snaps="true"> </input>
+			-->
+			
+			<input  type="range" ng-model="sintomasData.tipoSintoma[sintoma.id]" name="sintomasData.sintomas[{{sintoma.id}}]" min="0" max="3" step="1" pin="false" snaps="true"> </input>
+			<i class = "icon ion-plus-round"></i>
+		</div>
+		</div>
+
+<br>
+			<!--	<ion-item>
+			  <ion-range name="teste" pin="true" snaps ="true" mode="md" debounce="250" min="-200" max="200" color="secondary">
+				<ion-label slot="start">-200</ion-label>
+				<ion-label slot="end">200</ion-label>
+			  </ion-range>
+			</ion-item>
+			-->
+
+		<!-- 			Tiago		-->
+    </ion-content>
+</ion-view>
+<style>
+.bar.bar-header{
+	    box-shadow: none !important;
+	}
+	.bar.bar-stable{
+		border: none !important;
+	}
+</style>

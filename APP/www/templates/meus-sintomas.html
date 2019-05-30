@@ -1,0 +1,41 @@
+<ion-view view-title="" class="esqueci-senha-titulo meus-exames">
+	<ion-nav-title  class="esqueci-senha-titulo">
+		Meus Sintomas
+    </ion-nav-title>
+    <ion-content class="esqueci-senha">
+        <div class="bar bar-subheader bar-stable static text-center">
+            <strong class="title titulo-icone meus-exames">
+            	<i class="fa fa-list-alt" aria-hidden="true"></i>
+            	<br />
+            	<a class="btAdicionar links" href="#/app/cadastrar-sintomas"><img src="./img/imagens/button_add.png" /></a>
+           	</strong>
+        </div>
+		<div class="list">
+
+			  <div class="item item-icon-left" ng-repeat="sintoma in meusSintomas">
+			    <i class="icon fa fa-check-circle-o" aria-hidden="true" style="color: #62aaa2"></i>
+			    <!--<i ng-show="exame.situacao == 0" class="icon fa fa-exclamation-triangle" aria-hidden="true" style="color: red"></i>
+					-->
+					<ul>
+			    	<li>
+			    		<b>Descrição:</b> {{sintoma.descricao}}
+			    	</li>	
+			    	<li>
+			    		<b>Intensidade:</b> {{sintoma.intensidade}}
+			    	</li>
+			    	<li>
+			    		<b>Data do cadastro:</b> {{sintoma.data_report}}
+			    	</li>
+			    </ul>
+			  </div>
+		</div>
+    </ion-content>
+</ion-view>
+<style>
+	.bar.bar-header{
+	    box-shadow: none !important;
+	}
+	.bar.bar-stable{
+		border: none !important;
+	}
+</style>

@@ -1,0 +1,49 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeConfirmar()">Fechar</button>
+    </div>
+  </ion-header-bar>
+  <ion-content class="confirmarCadastro">
+  		<div class="bar bar-subheader bar-stable static text-center">
+            <strong class="title titulo-icone">
+            	<i class="fa fa-check-circle-o" aria-hidden="true"></i>
+            	<br />
+            	<span class="texto-icone">Confira seus dados antes de enviar</span>
+           	</strong>
+        </div>
+        <form name="cadastrarSintomasConfirmar" id="cadastrarSintomasConfirmar" class="formPadrao cadastroUsuario im-wrapper ">
+			<div class="list">
+				<label class="item item-input cadastroPadrao item-select">
+					    <div class="input-label corpadrao">
+					      Tipo: 
+					    </div>
+					    <label style="min-width: 50%;" name="sintomasData.sintomas[{{sintoma.id}}]" ng-model="sintomasData.tipoSintoma[sintoma.id]">
+					      <option ng-repeat="sintoma in listaSintomas" value={{sintoma.descricao}} = {{sintomasData.tipoSintoma[sintoma.id]}}> </option>
+              </label>
+
+					</label>
+					
+	
+			</div>
+			<div class="row">
+				<div class="col col-100">
+					<button class="button button-full botaoPadrao" ng-click="salvar()">Cadastrar</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col col-100">
+					<button class="button button-full button-light" ng-click="closeConfirmar()">Cancelar</button>
+				</div>
+			</div>
+		</form>
+    </ion-content>
+</ion-modal-view>
+<style>
+	.bar.bar-header{
+	    box-shadow: none !important;
+	}
+	.bar.bar-stable{
+		border: none !important;
+	}
+</style>
