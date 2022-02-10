@@ -7,7 +7,7 @@
     "@ionic/v1-toolkit": "1.0.22",
     "gulp": "^3.5.6",
     "gulp-sass": "^4.0.2",
-    "node-sass": "^4.11.0"
+    "node-sass": "^7.0.0"
   },
   "dependencies": {
     "@ionic-native/onesignal": "^4.16.0",
